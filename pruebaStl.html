@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelo 3D STL - Control de Cámara</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+const width = window.innerWidth, height = window.innerHeight;
+
+// Inicialización de la cámara
+const camera = new THREE.PerspectiveCamera(70, width / height, 0.01, 100);
+camera.position.set(0, 0, 5);
+
+const scene = new THREE.Scene();
+
+// Carga del archivo STL
+const loader = new THREE.STLLoader();
+loader.load('cubo.stl', (geometry) => {
+  const material = new THREE.MeshNormalMaterial();
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+  
+  const box = new THREE.Box3().setFromObject(mesh);
+  const center = box.getCenter(new THREE.Vector3());
+  mesh.position.sub(center);
+}, undefined, (error) => {
+  console.error('Error al cargar el archivo STL:', error);
+});
+
+// Configuración del renderizador
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(width, height);
+document.body.appendChild(renderer.domElement);
+
+// Configuración de OrbitControls
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; // Habilita el suavizado
+controls.dampingFactor = 0.25;  // Factor de suavizado
+controls.screenSpacePanning = false; // No permite desplazamiento en el espacio de pantalla
+
+// Función de animación
+function animate(time) {
+  controls.update(); // Actualiza los controles
+  renderer.render(scene, camera);
+}
+
+// Iniciar animación
+renderer.setAnimationLoop(animate);
+</script>
+
+</body>
+</html>
