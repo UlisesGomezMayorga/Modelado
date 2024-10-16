@@ -139,5 +139,40 @@
 	"nombre": "Bate",
 	"imagen": "img/actividad4-figura5.webp",
 	"consigna" : "Copiar la figura utilizando el chaflán y conos."
+},{
+	"actividad" : 5,
+	"punto" : 1,
+	"archivo" : "stl/actividad5-figura1.stl",
+	"nombre": "Monumento",
+	"imagen": "img/actividad5-figura1.webp",
+	"consigna" : "Replicar la figura"
+},{
+	"actividad" : 5,
+	"punto" : 2,
+	"archivo" : "stl/actividad5-figura2.stl",
+	"nombre": "Macetero",
+	"imagen": "img/actividad5-figura2.webp",
+	"consigna" : "Replicar la figura"
+},{
+	"actividad" : 5,
+	"punto" : 3,
+	"archivo" : "stl/actividad5-figura3.stl",
+	"nombre": "Capas del Planeta",
+	"imagen": "img/actividad5-figura3.webp",
+	"consigna" : "Replicar la figura"
+},{
+	"actividad" : 5,
+	"punto" : 4,
+	"archivo" : "stl/actividad5-figura4.stl",
+	"nombre": "BB-08",
+	"imagen": "img/actividad5-figura4.webp",
+	"consigna" : "Replicar la figura"
+},{
+	"actividad" : 5,
+	"punto" : 5,
+	"archivo" : "stl/actividad5-figura5.stl",
+	"nombre": "Bate",
+	"imagen": "img/actividad5-figura5.webp",
+	"consigna" : "Replicar la figura"
 }
 ]
